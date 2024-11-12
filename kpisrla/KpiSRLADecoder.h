@@ -63,10 +63,10 @@ public:
 
 	DWORD Open(const KPI_MEDIAINFO* cpRequest, IKpiFile* pFile);
 
-	DWORD Select(DWORD dwNumber, const KPI_MEDIAINFO** ppMediaInfo, IKpiTagInfo* pTagInfo, DWORD dwTagGetFlags) override;
-	DWORD Render(BYTE* pBuffer, DWORD dwSizeSample) override;
-	UINT64 Seek(UINT64 qwPosSample, DWORD dwFlag) override;
-	DWORD UpdateConfig(void* pvReserved) override;
+	DWORD WINAPI Select(DWORD dwNumber, const KPI_MEDIAINFO** ppMediaInfo, IKpiTagInfo* pTagInfo, DWORD dwTagGetFlags) override;
+	DWORD WINAPI Render(BYTE* pBuffer, DWORD dwSizeSample) override;
+	UINT64 WINAPI Seek(UINT64 qwPosSample, DWORD dwFlag) override;
+	DWORD WINAPI UpdateConfig(void* pvReserved) override;
 
 	DWORD IsSRLAFile(IKpiFile* pFile);
 private:

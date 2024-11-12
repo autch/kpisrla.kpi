@@ -69,7 +69,6 @@ int parse_args(int ac, char** av, options* options)
 				break;
 			default:
 				fprintf(stderr, "%s: Unknown option: %s\n", argv0, arg);
-				_FALLTHROUGH;
 			case 'h':
 				return usage(argv0);
 			}
