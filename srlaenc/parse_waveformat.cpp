@@ -59,7 +59,6 @@ int parse_waveformat(WaveReader& wav, pcm_params* params)
 			params->samples_per_sec = wf->nSamplesPerSec;
 			params->block_align = wf->nBlockAlign;
 			params->bits_per_sample = wfex->wBitsPerSample;
-			printf("wfex: bps: %d (%d) <-> align: %d\n", wfex->wBitsPerSample, wfext->Samples.wValidBitsPerSample, wfex->nBlockAlign);
 			return 0;		// ok
 		}
 		fprintf(stderr, "Unsupported WAVEFORMATEXTENSIBLE SubFormat\n");

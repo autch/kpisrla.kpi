@@ -4,15 +4,14 @@
 #include <cstdint>
 #include <vector>
 
-struct SampleHolder
+class SampleHolder
 {
-	uint32_t num_of_samples{0};	// number of samples decoded in this generation
-	uint32_t samples_used{ 0 };	// number of samples used in this generation
+public:
+	uint32_t num_of_samples{ 0 };	// number of samples held in channels
+	uint32_t samples_used{ 0 };	// number of samples used in channels, i.e. the number of samples that have been rendered
 
 	using samples_in_channel = std::vector<int32_t>;
 	std::vector<samples_in_channel> channels;
-
-	std::vector<int32_t*> buffer_ptrs;
 
 	SampleHolder(int num_channels, uint32_t max_samples)
 	{
@@ -53,16 +52,6 @@ struct SampleHolder
 		return buffer_ptrs.data();
 	}
 
-	void set_ptrs()
-	{
-		int num_channels = static_cast<int>(channels.size());
-		buffer_ptrs.resize(num_channels);
-		for(int ch = 0; ch < num_channels; ch++)
-		{
-			buffer_ptrs[ch] = channels[ch].data();
-		} 
-	}
-
 	void resize(int num_channels, uint32_t max_samples)
 	{
 		num_of_samples = samples_used = 0;
@@ -73,5 +62,22 @@ struct SampleHolder
 		}
 	}
 
-	uint32_t Render(BYTE* pBuffer, int bits_per_sample, DWORD dwSampleOffset, DWORD dwSampleUpperLimit);
+	uint32_t Render(BYTE* pBuffer, int bits_per_sample, DWORD dwSampleOffset, DWORD dwSampleUpperLimit) const;
+private:
+	std::vector<int32_t*> buffer_ptrs;
+
+	void set_ptrs()
+	{
+		int num_channels = static_cast<int>(channels.size());
+		buffer_ptrs.resize(num_channels);
+		for (int ch = 0; ch < num_channels; ch++)
+		{
+			buffer_ptrs[ch] = channels[ch].data();
+		}
+	}
+
+	uint32_t render_8(BYTE* pBuffer, DWORD dwSampleOffset, DWORD dwSampleUpperLimit) const;
+	uint32_t render_16(BYTE* pBuffer, DWORD dwSampleOffset, DWORD dwSampleUpperLimit) const;
+	uint32_t render_24(BYTE* pBuffer, DWORD dwSampleOffset, DWORD dwSampleUpperLimit) const;
+	uint32_t render_32(BYTE* pBuffer, DWORD dwSampleOffset, DWORD dwSampleUpperLimit) const;
 };

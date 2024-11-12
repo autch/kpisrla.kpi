@@ -59,15 +59,19 @@
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="KBMPPath.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="KBMPPath.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="KBMPPath.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="KBMPPath.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -109,7 +113,8 @@
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(OutDir)kpisrla.kpi" "E:\usr\local\kbmed316_beta4\x86\Plugins\Autch"</Command>
+      <Command>copy "$(OutDir)kpisrla.kpi" "$(KBMPPath)x86\Plugins\Autch"
+copy "$(OutDir)kpisrla.pdb" "$(KBMPPath)x86\Plugins\Autch"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -135,7 +140,8 @@
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(OutDir)kpisrla.kpi" "E:\usr\local\kbmed316_beta4\x86\Plugins\Autch"</Command>
+      <Command>copy "$(OutDir)kpisrla.kpi" "$(KBMPPath)x86\Plugins\Autch"
+copy "$(OutDir)kpisrla.pdb" "$(KBMPPath)x86\Plugins\Autch"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -157,8 +163,8 @@
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(OutDir)kpisrla.kpi" "E:\usr\local\kbmed316_beta4\x64\Plugins\Autch"
-copy "$(OutDir)kpisrla.pdb" "E:\usr\local\kbmed316_beta4\x64\Plugins\Autch"</Command>
+      <Command>copy "$(OutDir)kpisrla.kpi" "$(KBMPPath)x64\Plugins\Autch"
+copy "$(OutDir)kpisrla.pdb" "$(KBMPPath)x64\Plugins\Autch"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -184,8 +190,8 @@ copy "$(OutDir)kpisrla.pdb" "E:\usr\local\kbmed316_beta4\x64\Plugins\Autch"</Com
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(OutDir)kpisrla.kpi" "E:\usr\local\kbmed316_beta4\x64\Plugins\Autch"
-copy "$(OutDir)kpisrla.pdb" "E:\usr\local\kbmed316_beta4\x64\Plugins\Autch"</Command>
+      <Command>copy "$(OutDir)kpisrla.kpi" "$(KBMPPath)x64\Plugins\Autch"
+copy "$(OutDir)kpisrla.pdb" "$(KBMPPath)x64\Plugins\Autch"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
