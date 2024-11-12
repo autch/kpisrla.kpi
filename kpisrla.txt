@@ -1,0 +1,43 @@
+kpisrla.kpi
+===========
+
+可逆圧縮コーデック SRLA の音源を再生するための KbMedia Player プラグイン
+です。対応する拡張子は .srla です。
+
+8/16/24 bit, 8kHz～192kHz での動作を確認しています。32bit データは公式エ
+ンコーダが対応していないため試せていません。
+
+
+ライセンス
+----------
+
+SRLA decoder plugin for KbMedia Player
+  Copyright (c) 2024 Autch
+  SRLA Copyright (c) 2023 aikiriao <samuraiaiki@gmail.com>
+
+kpisrla.kpi は MIT ライセンスで配布されます。COPYING ファイルをご覧くだ
+さい。
+
+
+ソースコード
+------------
+
+ソースコードは以下の GitHub リポジトリから入手できます。
+https://github.com/autch/kpisrla.kpi
+
+Visual Studio 2022 Community でビルドしています。
+
+
+履歴
+----
+
+v1.0 (256) 2024.11.13
+	初版
+
+
+
+----
+Autch
+autch@autch.net
+http://github.com/autch
+http://www.autch.net/
