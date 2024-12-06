@@ -26,7 +26,7 @@ uint32_t SampleHolder::render_8(BYTE* pBuffer, DWORD dwSampleOffset, DWORD dwSam
 		for (int ch = 0; ch < num_channels; ch++)
 		{
 			int32_t sample = channels[ch][s];
-			reinterpret_cast<int8_t*>(pBuffer)[offset * num_channels + ch] = static_cast<int8_t>(sample - 128);
+			reinterpret_cast<uint8_t*>(pBuffer)[offset * num_channels + ch] = static_cast<uint8_t>(sample + 128);
 		}
 	}
 	return dwSampleUpperLimit - dwSampleOffset;

@@ -22,8 +22,8 @@ public:
 		case 8:
 			return [](void* input, size_t sample, int ch, int num_channels) -> int32_t
 				{
-					auto p = static_cast<int8_t*>(input);
-					return p[sample * num_channels + ch] - 128;
+					auto p = static_cast<uint8_t*>(input);
+					return static_cast<int32_t>(p[sample * num_channels + ch]) - 128;
 				};
 		case 16:
 			return [](void* input, size_t sample, int ch, int num_channels) -> int32_t
